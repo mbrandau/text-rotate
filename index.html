@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>text-rotate</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:100" rel="stylesheet" type="text/css" />
+  <style>
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+    }
+
+    html,
+    body {
+      font-family: 'Roboto', sans-serif;
+      font-size: 18px;
+      padding: 8px;
+      background: #222326;
+      color: #aaa;
+      margin: 0;
+    }
+
+    @media screen and (min-width: 512px) {
+      html,
+      body {
+        padding: 64px;
+      }
+    }
+
+    h1,
+    h2,
+    h3 {
+      font-weight: 100;
+      margin: 16px 0;
+    }
+
+    h1 {
+      font-size: 400%;
+    }
+
+    h2 {
+      color: #888;
+      font-size: 200%;
+    }
+
+    h3 {
+      font-size: 150%;
+    }
+
+    pre {
+      background: #333;
+      padding: 8px;
+      font-family: monospace;
+      border-radius: 2px;
+      overflow-x: auto;
+    }
+
+    h1.text-rotate>.cursor {
+      display: inline-block;
+      width: 30px;
+      margin-left: 8px;
+      border-bottom: 4px solid #888;
+      animation: blink 1s infinite;
+    }
+
+    @keyframes blink {
+      0% {
+        opacity: 0;
+      }
+      40% {
+        opacity: 0;
+      }
+      50% {
+        opacity: 1;
+      }
+      90% {
+        opacity: 1;
+      }
+      100% {
+        opacity: 0;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <h1>text-rotate is <span
+       class="text-rotate"
+       data-rotate='["awesome.","amazing.","easy to use."]'></span>
+  </h1>
+  <h2>A single &lt;span<span class="text-rotate" data-speed="4" data-rotate='[" data-rotate=&#39;[\&#34;Hello\&#34;, \&#34;World\&#34;]&#39;",""]'></span>&gt; is all you need.</h2>
+  <a class="github-button" href="https://github.com/mbrandau/text-rotate" data-size="large" data-show-count="true" aria-label="Star mbrandau/text-rotate on GitHub">Star</a> <a class="github-button" href="https://github.com/mbrandau/text-rotate/archive/master.zip" data-size="large" aria-label="Download mbrandau/text-rotate on GitHub">Download</a>
+  <h3>With HTML only</h3>
+  <pre><code>&lt;<span style="color:#b9f">span</span>
+    <span style="color:#f9b">class</span>=<span style="color:#9fb">"text-rotate"</span>
+    <span style="color:#f9b">data-rotate</span>=<span style="color:#9fb">'["Test","Just kidding"]'</span> <span style="color:#666">// data-rotate is mandatory and describes the strings to rotate through</span>
+    <span style="color:#f9b">data-speed</span>=<span style="color:#9fb">".5"</span> <span style="color:#666">// data-speed is optional and defines the speed of typing</span>
+    <span style="color:#f9b">data-period</span>=<span style="color:#9fb">"2000"</span>&gt; <span style="color:#666">// data-period is optional and sets the time to wait until deleting the text in milliseconds</span>
+  &lt;/<span style="color:#b9f">span</span>&gt;</code></pre>
+
+  <h3>With JS</h3>
+  <pre><code><span style="color:#b9f">new</span> <span style="color:#f9b">TextRotate</span>(
+  document.querySelector(<span style="color:#9fb">'#rotate'</span>), <span style="color:#666">// the span element to use</span>
+  [<span style="color:#9fb">'text 1'</span>, <span style="color:#9fb">'text 2'</span>], <span style="color:#666">// array of strings to rotate through</span>
+  {
+    <span style="color:#f9b">speed</span>: <span style="color:#9fb">2.0</span>, <span style="color:#666">// defaults to 1.0 (130ms - 200ms)</span>
+    <span style="color:#f9b">period</span>: <span style="color:#9fb">1000</span> <span style="color:#666">// defaults to 2000</span>
+  }
+);</code></pre>
+  <h3>Styling the cursor</h3>
+  <pre><code><span style="color:#f9b">.text-rotate</span> > <span style="color:#f9b">.cursor</span> {
+  <span style="color:#f9b">display</span>: <span style="color:#b9f">inline-block</span>;
+  <span style="color:#f9b">width</span>: <span style="color:#9fb">30px</span>;
+  <span style="color:#f9b">margin-left</span>: <span style="color:#9fb">8px</span>;
+  <span style="color:#f9b">border-bottom</span>: <span style="color:#9fb">4px</span> <span style="color:#b9f">solid</span> <span style="color:#9fb">#888</span>;
+  <span style="color:#f9b">animation</span>: <span style="color:#b9f">blink</span> <span style="color:#9fb">1s</span> <span style="color:#b9f">infinite</span>;
+}
+
+<span style="color:#b9f">@keyframes</span> <span style="color:#f9b">blink</span> {
+  <span style="color:#9fb">0%</span> { <span style="color:#f9b">opacity</span>: <span style="color:#9fb">0</span>; }
+  <span style="color:#9fb">40%</span> { <span style="color:#f9b">opacity</span>: <span style="color:#9fb">0</span>; }
+  <span style="color:#9fb">50%</span> { <span style="color:#f9b">opacity</span>: <span style="color:#9fb">1</span>; }
+  <span style="color:#9fb">90%</span> { <span style="color:#f9b">opacity</span>: <span style="color:#9fb">1</span>; }
+  <span style="color:#9fb">100%</span> { <span style="color:#f9b">opacity</span>: <span style="color:#9fb">0</span>; }
+}</code></pre>
+  <script src="index.js"></script>
+  <script async defer src="https://buttons.github.io/buttons.js"></script>
+</body>
+
+</html>

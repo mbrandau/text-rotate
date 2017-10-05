@@ -1,0 +1,46 @@
+{
+  "name": "text-rotate",
+  "version": "1.0.0",
+  "description": "Typewriter-like text rotation utility",
+  "main": "index.js",
+  "scripts": {
+    "build": "babel index.js -d dist"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mbrandau/text-rotate.git"
+  },
+  "keywords": [
+    "typewriter",
+    "text",
+    "rotation",
+    "rotate",
+    "console",
+    "type",
+    "writer"
+  ],
+  "author": "Maximilian Brandau",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mbrandau/text-rotate/issues"
+  },
+  "homepage": "https://github.com/mbrandau/text-rotate#readme",
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-plugin-minify-mangle-names": "^0.2.0",
+    "babel-plugin-transform-minify-booleans": "^6.8.3",
+    "babel-preset-env": "^1.6.0"
+  },
+  "babel": {
+    "comments": false,
+    "compact": true,
+    "minified": true,
+    "presets": [
+      "env"
+    ],
+    "plugins": [
+      "transform-minify-booleans",
+      "minify-mangle-names"
+    ]
+  }
+}
